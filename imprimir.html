@@ -97,8 +97,8 @@
     }
 
     .logo-img {
-      width: 32px;
-      height: 32px;
+      width: 52px;
+      height: 52px;
       object-fit: contain;
       filter: invert(1) grayscale(1);
       flex-shrink: 0;
@@ -121,11 +121,12 @@
 
     .menu-date {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.75rem;
+      font-size: 1.3rem;
       letter-spacing: 1px;
       color: #333;
       text-align: right;
       margin-left: auto;
+      font-weight: 600;
     }
 
     .section {
@@ -329,12 +330,11 @@
         supSection.style.display = 'none';
       }
 
-      // Postres en 2 columnas
+      // Postres en 4 lineas
       const posEl = document.getElementById(isCa ? 'postres_ca2' : 'postres1');
-      const postresItems = ['postre1','postre2','postre3','postre4']
-        .map(k => get(k)).filter(Boolean);
-      posEl.className = 'postres-grid';
-      posEl.innerHTML = postresItems.map(p => `<p class="dish">${p}</p>`).join('');
+      posEl.innerHTML = ['postre1','postre2','postre3','postre4']
+        .map(k => get(k)).filter(Boolean)
+        .map(p => `<p class="dish">${p}</p>`).join('');
     }
 
     fetch(CSV_URL)
