@@ -347,6 +347,10 @@
       const primeros = [get('primero1'),get('primero2'),get('primero3'),get('primero4')].filter(Boolean);
       const segundos = [get('segundo1'),get('segundo2'),get('segundo3'),get('segundo4')].filter(Boolean);
       const postres  = [get('postre1'), get('postre2'), get('postre3'), get('postre4')].filter(Boolean);
+      const suplementos = [1,2,3].map(i => ({
+        nombre: get(`suplemento ${i}`),
+        precio: get(`suplemento ${i} precio`)
+      })).filter(s => s.nombre);
       m.innerHTML = `
         <div class="menu-date">${get('fecha')}</div>
         <hr class="menu-divider">
@@ -359,6 +363,12 @@
           <p class="menu-section-title">Segundos</p>
           ${segundos.map(p => `<p class="menu-item">${p}</p>`).join('')}
         </div>
+        ${suplementos.length ? `
+        <hr class="menu-divider">
+        <div class="menu-section">
+          <p class="menu-section-title">Suplementos</p>
+          ${suplementos.map(s => `<p class="menu-item">${s.nombre}${s.precio ? ` · <strong>+${s.precio}€</strong>` : ''}</p>`).join('')}
+        </div>` : ''}
         <hr class="menu-divider">
         <div class="menu-section">
           <p class="menu-section-title">Postres</p>
