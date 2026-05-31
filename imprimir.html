@@ -153,6 +153,12 @@
       line-height: 1.5;
     }
 
+    .postres-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
     .dish-suplement {
       font-family: 'Dancing Script', cursive;
       font-size: 1.1rem;
@@ -323,11 +329,12 @@
         supSection.style.display = 'none';
       }
 
-      // Postres
+      // Postres en 2 columnas
       const posEl = document.getElementById(isCa ? 'postres_ca2' : 'postres1');
-      posEl.innerHTML = ['postre1','postre2','postre3','postre4']
-        .map(k => get(k)).filter(Boolean)
-        .map(p => `<p class="dish">${p}</p>`).join('');
+      const postresItems = ['postre1','postre2','postre3','postre4']
+        .map(k => get(k)).filter(Boolean);
+      posEl.className = 'postres-grid';
+      posEl.innerHTML = postresItems.map(p => `<p class="dish">${p}</p>`).join('');
     }
 
     fetch(CSV_URL)
