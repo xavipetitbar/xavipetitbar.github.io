@@ -253,7 +253,6 @@
       text-decoration: none;
       font-weight: 600;
     }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -265,8 +264,6 @@
   </style>
 </head>
 <body>
-
-
 
   <header>
     <div class="logo-banner">
@@ -337,7 +334,7 @@
         const cols = line.split(',');
         if (cols.length >= 2) {
           const key = cols[0].trim().replace(/"/g, '');
-          const val = cols.slice(1).join(',').trim().replace(/"/g, '');
+          const val = cols[1].trim().replace(/"/g, ''); // Solo columna B (español)
           if (key && val) data[key] = val;
         }
       });
