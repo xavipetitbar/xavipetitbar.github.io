@@ -232,7 +232,7 @@
       text.split('\n').forEach(line => {
         const cols = splitCSVLine(line);
         if (cols.length >= 2) {
-          const key = cols[0].replace(/"/g, '').trim();
+          const key = cols[0].replace(/"/g, '').trim().toLowerCase();
           const val = cols[1].replace(/"/g, '').trim();
           if (key && val) es[key] = val;
         }
@@ -256,7 +256,7 @@
         document.getElementById('precio').textContent = d['precio'] || '';
         const incluyeEl = document.getElementById('incluye');
         const llevarEl = document.getElementById('llevar');
-        if (incluyeEl) incluyeEl.textContent = d['Incluye'] || '';
+        if (incluyeEl) incluyeEl.textContent = d['incluye'] || '';
         if (llevarEl) llevarEl.textContent = 'Menú para llevar: ' + (d['precio_llevar'] || '');
 
         const sups = [1,2,3].map(i => ({
