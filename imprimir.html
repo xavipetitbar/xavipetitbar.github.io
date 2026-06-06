@@ -185,9 +185,17 @@
       color: #111;
     }
 
-    .incluye {
+    .incluye-inline {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 0.5px;
+    }
+
+    .llevar {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.65rem;
+      font-size: 1.2rem;
       color: #444;
       letter-spacing: 0.5px;
       line-height: 1.4;
@@ -244,9 +252,11 @@
       </div>
       <div class="menu-footer">
         <div>
-          <div class="precio" id="precio1">—</div>
-          <div class="incluye" id="incluye1"></div>
-          <div class="incluye" id="llevar1"></div>
+          <div style="display:flex;align-items:baseline;gap:8px;">
+            <div class="precio" id="precio1">—</div>
+            <div class="incluye-inline" id="incluye1"></div>
+          </div>
+          <div class="llevar" id="llevar1"></div>
         </div>
         <div class="horario">Cocina: 12:30 – 15:30<br>Tel. 93 237 88 26</div>
       </div>
@@ -282,9 +292,11 @@
       </div>
       <div class="menu-footer">
         <div>
-          <div class="precio" id="precio2">—</div>
-          <div class="incluye" id="incluye2"></div>
-          <div class="incluye" id="llevar2"></div>
+          <div style="display:flex;align-items:baseline;gap:8px;">
+            <div class="precio" id="precio2">—</div>
+            <div class="incluye-inline" id="incluye2"></div>
+          </div>
+          <div class="llevar" id="llevar2"></div>
         </div>
         <div class="horario">Cuina: 12:30 – 15:30<br>Tel. 93 237 88 26</div>
       </div>
@@ -334,7 +346,8 @@
       const incluyeEl = document.getElementById('incluye' + suffix);
       const llevarEl = document.getElementById('llevar' + suffix);
       if (incluyeEl) incluyeEl.textContent = incluye;
-      if (llevarEl) llevarEl.textContent = (isCaLang ? 'Menú per emportar: ' : 'Menú para llevar: ') + precioLlevar;
+      const llevarEl2 = document.getElementById('llevar' + suffix);
+      if (llevarEl2) llevarEl2.textContent = (isCaLang ? 'Menú per emportar: ' : 'Menú para llevar: ') + precioLlevar;
 
       // Primeros / Primers
       const priEl = document.getElementById(isCa ? 'primers2' : 'primeros1');
