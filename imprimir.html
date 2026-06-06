@@ -312,7 +312,7 @@
       text.split('\n').forEach(line => {
         const cols = splitCSVLine(line);
         if (cols.length >= 2) {
-          const key = cols[0].replace(/"/g, '').trim();
+          const key = cols[0].replace(/"/g, '').trim().toLowerCase();
           const valEs = cols[1].replace(/"/g, '').trim();
           const valCa = cols.length >= 3 ? cols[2].replace(/"/g, '').trim() : valEs;
           if (key && valEs) { es[key] = valEs; ca[key] = valCa || valEs; }
@@ -328,7 +328,7 @@
 
       document.getElementById('fecha' + suffix).textContent = get('fecha');
       document.getElementById('precio' + suffix).textContent = get('precio');
-      const incluye = get('Incluye');
+      const incluye = get('incluye');
       const precioLlevar = get('precio_llevar');
       const isCaLang = suffix === '2';
       const incluyeEl = document.getElementById('incluye' + suffix);
