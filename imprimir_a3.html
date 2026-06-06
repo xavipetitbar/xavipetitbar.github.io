@@ -267,8 +267,7 @@
         const incluyeEl = document.getElementById('incluye');
         const llevarEl = document.getElementById('llevar');
         if (incluyeEl) incluyeEl.textContent = d['incluye'] || '';
-        const llevarEl2 = document.getElementById('llevar');
-        if (llevarEl2) llevarEl2.textContent = 'Menú para llevar: ' + (d['precio_llevar'] || '');
+        if (llevarEl) llevarEl.textContent = 'Menú para llevar: ' + (d['precio_llevar'] || '');
 
         const sups = [1,2,3].map(i => ({
           nombre: d['suplemento ' + i],
